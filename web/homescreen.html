@@ -1,101 +1,149 @@
-<!DOCTYPE html <html>
+<!DOCTYPE html>
+<html lang="en">
 
-<head>
-    <title>Upload Image</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="=device-width, initial-scale=1.0">
+        <title>Upload Image</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                margin: 0;
+                padding: 0;
+            }
 
-        .container {
-            width: 100%;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-            margin: 50px auto;
-            max-width: 600px;
-        }
+            .container {
+                width: 100%;
+                max-width: 600px;
+                margin: 50px auto;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
 
-        .form-container {
-            padding: 20px;
-            background-color: #f5f5f5;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
+            .form-container {
+                padding: 40px;
+            }
 
-        input[type="file"] {
-            display: block;
-            margin: 0 auto 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            width: 100%;
-        }
+            h1 {
+                text-align: center;
+                margin-bottom: 40px;
+                color: #333;
+            }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-            color: #333;
-        }
+            input[type="file"] {
+                display: block;
+                margin: 0 auto 20px;
+                background-color: #f2f2f2;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                width: 100%;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+            }
 
-        select {
-            display: block;
-            margin: 0 auto 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-            width: 100%;
-        }
+            input[type="file"]:focus {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
 
-        .submit-btn {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #f39e00;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-size: 1.2em;
+                color: #333;
+            }
 
-        .submit-btn:hover {
-            background-color: #45a049;
-        }
+            select {
+                display: block;
+                margin: 0 auto 20px;
+                background-color: #f2f2f2;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                width: 100%;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+            }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #f39e00;
-        }
-    </style>
+            select:focus {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
 
-</head>
+            .submit-btn {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-image: linear-gradient(to right, #f39e00, #ffc107);
+                border: none;
+                border-radius: 5px;
+                color: #fff;
+                cursor: pointer;
+                transition: background-position 0.5s ease;
+            }
 
-<body>
-    <div class="container">
-        <div class="form-container">
-            <h1>Upload Your Image</h1>
-            <form action="your-upload-script.php" method="post" enctype="multipart/form-data"> <label for="image">Select
-                    an image to upload:</label> <input type="file" name="image" id="image" required> <br> <label
-                    for="location">Select Your Preferred Location:</label> <select name="location" id="location">
-                    <option value="karnataka">Karnataka</option>
-                    <option value="goa">Goa</option>
-                    <option value="andhrapradesh">Andhra Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Delhi">Delhi</option> 
-                      <!--   MORE STATES WILL BE ADDED HERE -->
-                </select> <br> <input type="submit" value="Upload Image" name="submit" class="submit-btn"> </form>
+            .submit-btn:hover {
+                background-position: right center;
+            }
+
+            .submit-btn:active {
+                background-color: #f39e00;
+            }
+
+            .spinner {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50px;
+                height: 50px;
+                border: 4px solid #f39e00;
+                border-top-color: #fff;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            @keyframes spin {
+                to {
+                    transform: translate(-50%, -50%) rotate(360deg);
+                }
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="form-container">
+                <h1>Upload Your Image</h1>
+                <form action="your-upload-script.php" method="post" enctype="multipart/form-data"> <label
+                        for="image">Select an image to upload:</label> <input type="file" name="image" id="image"
+                        required> <br> <label for="location">Select Your Preferred Location:</label> <select
+                        name="location" id="location">
+                        <option value="karnataka">Karnataka</option>
+                        <option value="goa">Goa</option>
+                        <option value="andhrapradesh">Andhra Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Delhi">Delhi</option> <!-- Add more states here -->
+                    </select> <br> <input type="submit" value="Upload Image" name="submit" class="submit-btn">
+                    <div class="spinner">
+                        <div class="rect1"></div>
+                        <div class="rect2"></div>
+                        <div class="rect3"></div>
+                        <div class="rect4"></div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
 
 </html>
