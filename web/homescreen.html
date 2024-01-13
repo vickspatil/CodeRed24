@@ -1,54 +1,101 @@
-<!DOCTYPE html>
-<html>
-</head> 
-<body> 
-  <div class="container">
-     <div class="form-container"> 
-      <h1>Upload Your Image</h1> 
-      <form action="your-upload-script.php" method="post" enctype="multipart/form-data"> 
-        <input type="file" name="image" id="imageFE" required> 
-        <input type="submit" value="Upload Image" name="submit" class="submit-btn"> 
-      </form> 
-    </div> 
-  </div>
-  <style>
-    .container {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
+<!DOCTYPE html <html>
 
-.form-container {
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
+<head>
+    <title>Upload Image</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-input[type="file"] {
-    margin-bottom: 20px;
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
 
-.submit-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #f39e00;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .container {
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            margin: 50px auto;
+            max-width: 600px;
+        }
 
-.submit-btn:hover {
-    background-color: #45a049;
-}
-</style>
- 
-</body> 
+        .form-container {
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        select {
+            display: block;
+            margin: 0 auto 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f39e00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f39e00;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Upload Your Image</h1>
+            <form action="your-upload-script.php" method="post" enctype="multipart/form-data"> <label for="image">Select
+                    an image to upload:</label> <input type="file" name="image" id="image" required> <br> <label
+                    for="location">Select Your Preferred Location:</label> <select name="location" id="location">
+                    <option value="karnataka">Karnataka</option>
+                    <option value="goa">Goa</option>
+                    <option value="andhrapradesh">Andhra Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Delhi">Delhi</option> 
+                      <!--   MORE STATES WILL BE ADDED HERE -->
+                </select> <br> <input type="submit" value="Upload Image" name="submit" class="submit-btn"> </form>
+        </div>
+    </div>
+</body>
+
 </html>
-
-
-
