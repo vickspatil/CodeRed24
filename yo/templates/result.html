@@ -1,12 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result</title>
-</head>
-<body>
-    <h1>Result</h1>
-    <p>{{ result }}</p>
-</body>
-</html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Results</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background-image: url('ajanta1.jpg');
+                background-size: cover;
+                background-position: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            .dark-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 1;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                padding: 40px;
+                z-index: 2;
+                position: relative;
+            }
+
+            .form-container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 40px;
+            }
+
+            .state-container,
+            .landform-container {
+                flex-basis: 45%;
+            }
+
+            input[type="text"],
+            select {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                background-color: #fff;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: box-shadow 0.3s ease;
+            }
+
+            input[type="text"]:focus,
+            select:focus {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            }
+
+            #image-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #image-table th,
+            #image-table td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+
+            #image-table th {
+                background-color: #f39e00;
+                color: #fff;
+                border-radius: 5px 5px 0 0;
+            }
+
+            #image-table td:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #image-table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            #image-table tr:hover {
+                background-color: #f39e00;
+                color: #fff;
+            }
+
+            #image-table .image-cell {
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                border-radius: 5px;
+            }
+
+            #image-table .image-cell img {
+                width: 100%;
+                height: auto;
+            }
+
+            #image-table .location-cell {
+                width: 200px;
+            }
+
+            #image-table .landform-cell {
+                width: 150px;
+            }
+
+            #image-table .description-cell {
+                width: 400px;
+            }
+
+            #image-table .description-cell {
+                width: 400px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="dark-overlay"></div>
+        <div class="container">
+            <h1>Image Results</h1>
+            <div class="form-container">  </div>
+            <div class="table-container">
+                <table id="image-table">
+                    <thead>
+                        <tr>
+                            <th class="image-cell">Image</th>
+                            <th class="location-cell">Location</th>
+                            <th class="description-cell">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table data will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="script.js"></script>
+</body> </html>
