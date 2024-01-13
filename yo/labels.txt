@@ -1,0 +1,3 @@
+0 beaches
+1 monuments
+2 mountains
