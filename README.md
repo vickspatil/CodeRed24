@@ -32,5 +32,5 @@ monuments, beaches, etc.
 Processing
    -  Flask application implements an image classification service using a pre-trained Keras model. Upon image upload, it preprocesses and predicts the image class. The result includes the predicted class name and confidence score, displayed on a result page. The app uses an HTML template for the user interface and runs on a local server.
 
-** LOCATION FILTERING AND NEURAL NETWORKS: ** 
+**LOCATION FILTERING AND NEURAL NETWORKS:** 
 This travel recommendation system utilizes neural networks and location filtering to suggest personalized destinations. The system processes user preferences, historical data, and geographical parameters, generating a curated list of places. Neural networks analyze patterns, enhancing the accuracy of recommendations for a tailored and enjoyable travel experience.
