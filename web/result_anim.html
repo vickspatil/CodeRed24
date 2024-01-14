@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: 'Cascadia Mono SemiBold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #f3ec78, #af4261, #00ffd8, #d9a7c7);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            font-size: 1.5em;
+            background-color: #ffd6ba; /* Light peach color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+            width: 300px;
+            text-align: center;
+            margin: 20px auto; /* Adjusted margin to center the result */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Result</h1>
+    <p>{{ result }}</p>
+</body>
+
+</html>
