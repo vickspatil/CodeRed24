@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        body {
+            font-family: 'Cascadia Mono SemiBold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(45deg, #f3ec78, #af4261, #00ffd8, #d9a7c7);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s infinite;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1 {
+            position: relative;
+            text-align: center;
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        h1::before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            width: 0;
+            background: linear-gradient(45deg, #ffaa80, #ff8c66); /* Peach color gradient */
+            animation: popUp 2s ease infinite;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+
+        @keyframes popUp {
+            0%, 20% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        form {
+            font-family: 'Cascadia Mono SemiBold', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffd6ba; /* Light peach color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+            width: 300px;
+            text-align: center;
+            margin: 20px auto; /* Adjusted margin to center the form */
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            display: block;
+            background-color: #ffaa80; /* Light peach color for the button */
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        label:hover {
+            background-color: #ff8c66; /* Darker peach color on hover */
+        }
+
+        button {
+            background-color: #ffaa80; /* Light peach color for the button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff8c66; /* Darker peach color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Classification</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Choose an image</label>
+        <input type="file" name="file" id="file" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+
+</html>
